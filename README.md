@@ -1,7 +1,7 @@
 # FINE3300 (Fall - 2026)
 
 ## Project Overview
-* The purpose of this Working Directory is to provide users with a exchange rate calculator that accepts only USD, and CAD based on data sourced from Bank of Canada Exchange rates as of 1/1/2025. The Csv file from the bank of canada can be found In the working directory as "BankOfCanadaExchangeRate.2026.csv"
+* The purpose of this Working Directory is to provide users with a exchange rate calculator that accepts only USD, and CAD based on data sourced from Bank of Canada Exchange rates as of 1/1/2025. The Csv file from the Bank of Canada can be found In the working directory as "BankOfCanadaExchangeRate.2026.csv"
 
 
 ### Technical Logic & Implementation 
