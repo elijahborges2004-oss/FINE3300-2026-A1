@@ -1,0 +1,80 @@
+import pandas as pd
+
+
+class ExchangeRates:
+
+  def __init__(self, file_path):
+    """Initializes the ExchangeRates class by reading the CSV file
+
+    and extracting the latest USD/CAD exchange rate from the last row.
+    """
+    try:
+      # Read the CSV file using pandas
+      df = pd.read_csv(file_path)
+
+      # Clean column names in case of whitespace
+      df.columns = df.columns.str.strip()
+
+      # Locate the USD/CAD exchange rate column dynamically
+      usd_cad_col = None
+      for col in df.columns:
+        if 'USD' in col.upper() and 'CAD' in col.upper():
+          usd_cad_col = col
+          break
+
+      if usd_cad_col:
+        # Extract the value from the last row
+        self.rate = float(df[usd_cad_col].iloc[-1])
+      else:
+        # Fallback to the specified rate if column is not found
+        self.rate = 1.3978
+
+    except Exception as e:
+      # Fallback to the specified rate if file loading encounters an error
+      print(f'Warning: Could not read file ({e}). Using default rate 1.3978.')
+      self.rate = 1.3978
+
+  def convert(self, amount, from_currency, to_currency):
+    """Converts the amount between USD and CAD using the loaded exchange rate."""
+    from_curr = from_currency.strip().upper()
+    to_curr = to_currency.strip().upper()
+
+    if from_curr == 'USD' and to_curr == 'CAD':
+      return amount * self.rate
+    elif from_curr == 'CAD' and to_curr == 'USD':
+      return amount / self.rate
+    elif from_curr == to_curr:
+      return amount
+    else:
+      raise ValueError("Unsupported currency pair. Please enter 'USD' or 'CAD'.")
+
+
+def main():
+  # Specified file path
+  file_path = r'C:\Users\pacha\Desktop\BankOfCanadaExchangeRate.2026.csv'
+
+  # Initialize ExchangeRates object
+  exchange = ExchangeRates(file_path)
+  print(f'Loaded USD/CAD Exchange Rate: {exchange.rate}')
+  print('-' * 40)
+
+  # Prompt user for inputs using input()
+  try:
+    amount_str = input('Enter the amount to convert: ')
+    amount = float(amount_str)
+
+    from_curr = input("Enter 'from' currency (USD or CAD): ")
+    to_curr = input("Enter 'to' currency (USD or CAD): ")
+
+    # Perform conversion
+    result = exchange.convert(amount, from_curr, to_curr)
+
+    # Format output rounded to the nearest penny with dollar signs and currency identifiers
+    print(f'\nConverted Amount: ${result:,.2f} {to_curr.upper()}')
+
+  except ValueError as err:
+    print(f'Input Error: {err}')
+
+
+if __name__ == '__main__':
+  main()
