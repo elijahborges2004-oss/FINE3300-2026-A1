@@ -4,6 +4,11 @@
 * The purpose of this Working Directory is to provide users with a exchange rate calculator that accepts only USD, and CAD based on data sourced from Bank of Canada Exchange rates as of 1/1/2025. The Csv file from the Bank of Canada can be found In the working directory as "BankOfCanadaExchangeRate.2026.csv"
 
 
+### Installation Instructions
+
+* **Unzip** the downloaded project folder.
+* Open a terminal in the folder directory and ensure to install **pandas**:
+
 ### Technical Logic & Implementation 
 
 ## Creation of Exchange rate class with it's components
