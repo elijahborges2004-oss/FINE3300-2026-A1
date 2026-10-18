@@ -6,7 +6,7 @@ class ExchangeRates:
         self.CAD = CAD
         self.USD = USD
 
-        # Indexs data from the csv file provided for future use via pandas
+        # Indexes data from the csv file provided for future use via pandas
         df = pd.read_csv("BankOfCanadaExchangeRate.2026.csv")
         self.Exchange_Rate=df.iloc[-1, -2]
 
@@ -27,13 +27,13 @@ class ExchangeRates:
 print ("Convert to your desired currency Only USD and CAD accepted! e.g (144,USD,CAD)")
 # Define the "rates" variable that will be passed through the "convert" method
 rates = ExchangeRates("CAD", "USD")
-# Creates three seperate variables via tuple unpacking based on user input and splits the string
+# Creates three separate variables via tuple unpacking based on user input and splits the string
 amount, From_Currency, To_Currency = input("Enter (amount,from,to): ").split(",")
 
-# Seperately cleans to currency to use to fomat the final result later
+# Separately cleans to currency to use to fomat the final result later
 Clean_To_Currency = To_Currency.strip().upper()
 '''
-Converts the string into the desired data type while cleaing the data for any extra spaces
+Converts the string into the desired data type while cleaning the data for any extra spaces
 and applies the "convert" method created earlier while making use of the already cleaned "Clean_To_Currency"
 '''
 result = rates.convert(float(amount), From_Currency.strip().upper(), Clean_To_Currency)
