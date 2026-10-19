@@ -6,8 +6,9 @@ class ExchangeRates:
         self.CAD = CAD
         self.USD = USD
 
-        # Indexes data from the csv file provided for future use via pandas
+        # Creates the variable df and reads the Bank of Canada file
         df = pd.read_csv("BankOfCanadaExchangeRate.2026.csv")
+        # Goes to the last row (The latest rate) of the second last column to get the CAD/USD exchange rate
         self.Exchange_Rate=df.iloc[-1, -2]
 
     # Instantiating the required variables for the method "convert"
