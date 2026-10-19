@@ -25,7 +25,7 @@ class ExchangeRates:
             print("Only CAD and USD accepted")
             sys.exit()
 # Informs the user on the purpose of calculator and the accepted currencies
-print ("Convert to your desired currency Only USD and CAD accepted! e.g (144,USD,CAD)")
+print ("Convert to your desired currency Only USD and CAD accepted! e.g 144,USD,CAD")
 # Define the "rates" variable that will be passed through the "convert" method
 rates = ExchangeRates("CAD", "USD")
 # Creates three separate variables via tuple unpacking based on user input and splits the string
