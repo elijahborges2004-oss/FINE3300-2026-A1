@@ -12,7 +12,8 @@
 ### Technical Logic & Implementation 
 
 ## Creation of Exchange rate class with it's components
-* Indexes data from the csv file provided for future use via pandas
+*  Creates the variable df and reads the Bank of Canada file
+* Goes to the last row (The latest rate) of the second last column to get the CAD/USD exchange rate from the file
 * Instantiating the required variables for the method "convert"
     * Calculator Currency to, from conversion logic
 
