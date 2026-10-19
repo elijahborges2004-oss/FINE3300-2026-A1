@@ -31,7 +31,7 @@ rates = ExchangeRates("CAD", "USD")
 # Creates three separate variables via tuple unpacking based on user input and splits the string
 amount, From_Currency, To_Currency = input("Enter (amount,from,to): ").split(",")
 
-# Separately cleans to currency to use to fomat the final result later
+# Separately cleans to currency to use to format the final result later
 Clean_To_Currency = To_Currency.strip().upper()
 '''
 Converts the string into the desired data type while cleaning the data for any extra spaces
