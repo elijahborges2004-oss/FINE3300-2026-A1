@@ -23,7 +23,7 @@
 
 ## Data Processing & Parsing
 * Creates three separate variables via tuple unpacking based on user input and splits the string
-* Separately cleans to currency to use to fomat the final result later
+* Separately cleans to currency to use to format the final result later
 
 ## Execution & Output
 * Converts the string into the desired data type while cleaning the data for any extra spaces and applies the "convert" method created earlier while making use of the already cleaned "Clean_To_Currency"
